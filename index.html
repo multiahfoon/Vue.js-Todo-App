@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- display todolist arr in html -->
+    <!-- Bug where todo item is displayed while typing -->
     <div id="app">
         <form @submit.prevent="addTodo">
             <h1>Todo App</h1>
@@ -16,8 +16,8 @@
             <br>
             <button type="submit">Add</button>
         </form>
-        <ul v-for="item in todoList">
-            <li>{{todo}}</li>
+        <ul>
+            <li v-for="item in todoList">{{item}}</li>
         </ul>
     </div>
     
