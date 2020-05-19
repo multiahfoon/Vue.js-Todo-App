@@ -7,6 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+
+    <!-- display todolist arr in html -->
     <div id="app">
         <form @submit.prevent="addTodo">
             <h1>Todo App</h1>
@@ -14,7 +16,7 @@
             <br>
             <button type="submit">Add</button>
         </form>
-        <ul>
+        <ul v-for="item in todoList">
             <li>{{todo}}</li>
         </ul>
     </div>
