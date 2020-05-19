@@ -7,10 +7,32 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <h1>Todo list</h1>
-    <input type="text" name="" id="">
-    <ul>
-        <li></li>
-    </ul>
+    <div id="app">
+        <form @submit.prevent="addTodo">
+            <h1>Todo App</h1>
+            <input type="text" v-model="todo">
+            <br>
+            <button type="submit">Add</button>
+        </form>
+        <ul>
+            <li>{{todo}}</li>
+        </ul>
+    </div>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                todo: '',
+                todoList: []
+            },
+            methods: {
+                addTodo(){
+                    this.todoList.push(this.todo)
+                    console.log(this.todoList)
+                }
+            }
+        });
+    </script>
 </body>
 </html>
