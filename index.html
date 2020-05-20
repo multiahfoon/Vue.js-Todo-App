@@ -15,7 +15,6 @@
         <form @submit.prevent="addTodo">
             <h1>Todo App</h1>
             <input type="text" v-model="NewTodo">
-            <br>
             <button type="submit">Add</button>
         </form>
         <ul>
@@ -36,7 +35,6 @@
             methods: {
                 addTodo() {
                     this.todoList.push(this.NewTodo);
-                    console.log(this.todoList);
                     this.NewTodo = "";
                 },
                 remove(index) {
