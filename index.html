@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO LIST</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
 
-    <!-- Bug where todo item is displayed while typing -->
+
     <div id="app">
         <form @submit.prevent="addTodo">
             <h1>Todo App</h1>
-            <input type="text" v-model="todo">
+            <input type="text" v-model="NewTodo">
             <br>
             <button type="submit">Add</button>
         </form>
         <ul>
-            <li v-for="item in todoList">{{item}}</li>
+            <li v-for="item in todoList">
+                {{item}}
+                <button v-on:click="remove(item)">remove</button>
+            </li>
         </ul>
     </div>
-    
+
     <script>
         new Vue({
             el: '#app',
             data: {
-                todo: '',
+                NewTodo: '',
                 todoList: []
             },
             methods: {
-                addTodo(){
-                    this.todoList.push(this.todo)
+                addTodo() {
+                    this.todoList.push(this.NewTodo)
                     console.log(this.todoList)
+                    this.NewTodo = ""
+                },
+                remove: function (item) {
+                    this.todoList.splice(item, 1);
                 }
             }
         });
     </script>
 </body>
+
 </html>
